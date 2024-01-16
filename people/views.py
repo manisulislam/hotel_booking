@@ -129,7 +129,7 @@ class UserLogoutView(LogoutView):
     def get_success_url(self) :
         sweetify.success(self.request, 'You Logged Out Successfully', icon='success')
         
-        return reverse_lazy('home')
+        return reverse_lazy('login')
 class ProfileView(View):
     template_name = 'accounts/profile.html'
     def get(self, request):
