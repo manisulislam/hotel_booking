@@ -87,9 +87,17 @@ WSGI_APPLICATION = 'hotel_management.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgres://anis_user:z3jx211f9aZze0ewqPXVcHgB9MkFJ1SA@dpg-cmicm9f109ks739knssg-a.oregon-postgres.render.com/anis',
+        default='postgres://anis_4t9s_user:t7H30DjdUbNQSWo6WukIj7Nnh4FH1J16@dpg-cmj4gq7109ks739plpbg-a.oregon-postgres.render.com/anis_4t9s',
     )
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 
 
 # Password validation
