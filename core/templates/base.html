@@ -33,14 +33,10 @@
             <a href="{% url 'profile' %}">
               <button type="button" class="btn btn-outline-primary">Profile</button>
              </a>
-             <form method="post">
-              {% csrf_token %}
-              <a href="{% url 'logout' %}">
-                <button type="button" class="btn btn-outline-danger">Log Out</button>
-              </a>
              
-             </form>
-             
+             <a href="{% url 'logout' %}">
+              <button type="button" class="btn btn-outline-danger">Log Out</button>
+            </a>
               
             
             {% else %}
