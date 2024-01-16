@@ -76,7 +76,7 @@ class UserRegistrationView(View):
             mail_subject='Confirmation Email'
             uid=urlsafe_base64_encode(force_bytes(user.pk))
             token=generate_token.make_token(user)
-            confirm_link=f"https://hotel-booking-7gpi.onrender.com/people/active/{uid}/{token}"
+            confirm_link=f"https://hotel-booking-r726.onrender.com/people/active/{uid}/{token}"
             message=render_to_string('accounts/email_confirmations.html',{
                 'first_name': first_name,
                 'last_name': last_name,
