@@ -33,9 +33,12 @@
             <a href="{% url 'profile' %}">
               <button type="button" class="btn btn-outline-primary">Profile</button>
              </a>
-             <form action="{% url 'logout' %}" method="post"></form>
-             
+             <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
               <button type="button" class="btn btn-outline-danger">Log Out</button>
+             </form>
+             
+              
             
             {% else %}
              <a href="{% url 'register' %}">
