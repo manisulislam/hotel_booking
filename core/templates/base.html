@@ -11,7 +11,7 @@
       <!-- navbar -->
     <nav class="navbar container navbar-expand-lg bg-body-tertiary py-3 shadow-md mb-4">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">The LakeFront</a>
+        <a class="navbar-brand" href="{% url 'home' %}">The LakeFront</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,10 +33,10 @@
             <a href="{% url 'profile' %}">
               <button type="button" class="btn btn-outline-primary">Profile</button>
              </a>
+             <form action="{% url 'logout' %}" method="post"></form>
              
-             <a href="{% url 'logout' %}">
               <button type="button" class="btn btn-outline-danger">Log Out</button>
-             </a>
+            
             {% else %}
              <a href="{% url 'register' %}">
               <button type="button" class="btn btn-outline-primary">Register</button>
