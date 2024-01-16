@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{% static 'images/hero.jpg'%}" class="h-75 d-block w-100 mb-5" alt="">
+</div>
+<h1 class="text-center text-primary mb-4">Our All Hotel</h1>
+<div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mb-4">
+
+    {% for item in data %}
+    <div class="card" style="width: 18rem;">
+        <div>
+            <img src="{{item.hotel_image.url}}" class="card-img-top img-fluid p-3 rounded "
+                style="width: 285px; height: 280px;" alt="...">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Hotel title: {{item.name | truncatewords:5}}</h5>
+            <p class="card-text"><b>Hotel description:</b> {{item.description | truncatewords:10}}</p>
+            <h3>Price: {{item.price}} taka </h3>
+            <p>Hotel Address: {{item.address}}</p>
+            <a href="{% url 'hotel_detail' item.id %}">
+                <button class="btn btn-outline-primary">View Details</button>
+            </a>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<!-- footer -->
+<footer class="bg-body-secondary">
+    <div class="py-3">
+      <p class="text-center text-dark"> © {% now "Y" %} Modified by The LakeFront</p>
+    </div>
+  </footer>
+{% endblock %}
