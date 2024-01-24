@@ -69,3 +69,6 @@ def Book_Review(request, id):
     else:
         form = CommentForm()
     return render(request, 'book_review.html', {'form': form})
+
+def Photo_Galary(request):
+    return render(request, 'photo_galary.html')

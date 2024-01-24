@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Photo Galary</title>
+{% endblock %}
+{% block content %}
+
+<!-- meeting section -->
+<section>
+    <h1>Meeting Room</h1>
+<div class="row ">
+    <img class="col-lg-3 p-3" src="{% static 'images/pg_meet1.jpeg' %}" alt="">
+    <img class="col-lg-3 p-3" src="{% static 'images/pg_meet2.jpeg' %}" alt="">
+    <img class="col-lg-3 p-3" src="{% static 'images/pg_meet3.jpeg' %}" alt="">
+    <img class="col-lg-3 p-3" src="{% static 'images/pg_meet4.jpeg' %}" alt="">
+    <img class="col-lg-3 p-3" src="{% static 'images/pg_meet5.jpeg' %}" alt="">
+</div>
+</section>
+
+<!-- child section -->
+<section class="row ">
+    <h1>For Children</h1>
+    <img class="col-lg-3 p-3"  src="{% static 'images/pg_child1.jpg' %}" alt="">
+    <img class="col-lg-3 p-3"  src="{% static 'images/pg_child2.jpg' %}" alt="">
+    
+</section>
+
+<!-- gym facility -->
+<section class="row ">
+    <h1>Gym facility</h1>
+    <img class="col-lg-3 p-3"  src="{% static 'images/pg_gym_1.jpeg' %}" alt="">
+    <img class="col-lg-3 p-3"  src="{% static 'images/pg_gym_2.jpeg' %}" alt="">
+    <img class="col-lg-3 p-3"  src="{% static 'images/pg_gym_3.jpeg' %}" alt="">
+    <img class="col-lg-3 p-3"  src="{% static 'images/pg_gym_4.jpeg' %}" alt="">
+</section>
+<!-- footer -->
+<footer class="bg-body-secondary">
+    <div class="py-3">
+      <p class="text-center text-dark"> © {% now "Y" %} Modified by The LakeFront</p>
+    </div>
+  </footer>
+{% endblock %}
