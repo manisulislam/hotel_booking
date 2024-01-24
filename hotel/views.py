@@ -7,7 +7,7 @@ from .models import HotelInfo
 import sweetify
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
-from .forms import CommentForm
+from .forms import CommentForm,ContactUsForm
 from hotel.models import Comment
 # Create your views here.
 class HotelDetailView(DetailView):
@@ -72,3 +72,17 @@ def Book_Review(request, id):
 
 def Photo_Galary(request):
     return render(request, 'photo_galary.html')
+
+
+
+
+def Contact_Us(request):
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            sweetify.success(request, 'Message Sent Successfully.', icon='success')
+            return redirect('home')
+    else:
+        form = ContactUsForm()
+    return render(request, 'contact_us.html',{'form':form})

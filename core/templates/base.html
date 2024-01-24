@@ -1,19 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block title %} 
-    {% endblock %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %}
+  {% endblock %}
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
-    <section>
-      <!-- navbar -->
+  <section>
+    <!-- navbar -->
     <nav class="navbar container navbar-expand-lg bg-body-tertiary py-3 shadow-md mb-4">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">The LakeFront</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -21,50 +27,71 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'photo_galary' %}">Photo Galary</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'photo_galary' %}">Photo Galary</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'contact_us' %}">Contact Us</a>
+                </li>
+
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'deposit' %}">Deposit</a>
+                </li>
+                {% endif %}
+              </ul>
             </li>
-            {% if request.user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'deposit' %}">Deposit</a>
-            </li>
-            {% endif %}
-            
+           
+
+
+
           </ul>
-          <div class="d-flex gap-4" >
+          <div class="d-flex gap-4">
             {% if request.user.is_authenticated %}
-            <h5 class="mt-2"> welcome,{{request.user.username}}  (balance : {{request.user.account.balance}}) taka</h5>
+            <h5 class="mt-2"> welcome,{{request.user.username}} (balance : {{request.user.account.balance}}) taka</h5>
+            
             <a href="{% url 'profile' %}">
               <button type="button" class="btn btn-outline-primary">Profile</button>
-             </a>
-             
-             <a href="{% url 'logout' %}">
+            </a>
+            
+
+            <a href="{% url 'logout' %}">
               <button type="button" class="btn btn-outline-danger">Log Out</button>
             </a>
-              
             
+
+
             {% else %}
-             <a href="{% url 'register' %}">
+            <a href="{% url 'register' %}">
               <button type="button" class="btn btn-outline-primary">Register</button>
-             </a>
-             <a href="{% url 'login' %}">
+            </a>
+            <a href="{% url 'login' %}">
               <button type="button" class="btn btn-outline-danger">Sign In</button>
-             </a>
-             {% endif %}
-           
+            </a>
+            {% endif %}
+
           </div>
         </div>
       </div>
     </nav>
-    </section>
-    <div class="px-4">
+  </section>
+  <div class="px-4">
     {% block content %}
     {% endblock %}
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.5/sweetalert2.all.min.js"></script>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.5/sweetalert2.all.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
 {% load sweetify %}
 {% sweetify %}
