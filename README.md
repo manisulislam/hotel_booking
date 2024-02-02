@@ -10,10 +10,6 @@ Hotel booking is a crucial aspect of trip planning, allowing travelers to secure
 
 
 
-## Live Link : https://hotel-booking-r726.onrender.com/
-
-
-
 
 ## The LakeFront Features
 - User Register and login.
@@ -24,3 +20,6 @@ Hotel booking is a crucial aspect of trip planning, allowing travelers to secure
 - Deposit amount and sendig email
 - Good UI/UX
 - Speacial offer with weekend or month
+
+
+## Live Link : https://hotel-booking-r726.onrender.com/
