@@ -20,7 +20,6 @@ idna
 Markdown
 MouseInfo
 mss
-mysqlclient
 numpy
 opencv-contrib-python
 packaging
