@@ -25,6 +25,7 @@ opencv-contrib-python
 packaging
 Pillow
 platformdirs
+psycopg2
 psycopg2-binary
 PyAutoGUI
 PyGetWindow
